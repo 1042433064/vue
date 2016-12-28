@@ -12,7 +12,7 @@ cooking.set({
     publicPath: '/',
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'http://192.168.10.176:8080',
         pathRewrite: {'^/api' : ''},
         //secure: false
       }
@@ -35,6 +35,7 @@ cooking.set({
   alias: {
     'src': path.join(__dirname, 'src'),
     'vue'  : 'vue/dist/vue.min',
+
     //'jquery'  : '/src/oldjs/primary/plugins/datetimepicker/sample in bootstrap v3/jquery/jquery-1.8.3.min'
   },
   extends: ['vue2', 'less', 'autoprefixer']
