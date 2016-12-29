@@ -19,15 +19,6 @@
             }
         },
         methods: {
-            menus: function () {
-                var id=this.id;
-                var key=this.key;
-                return this.$store.state.data.filter(
-                        function(v){
-                            return v.id==id
-                        }
-                )
-            }
         }
     }
 </script>

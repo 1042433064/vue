@@ -4,26 +4,31 @@
 
 <template>
     <div>
-        <tree :menus="menus()"></tree>
+        <tree-render :list="menus"></tree-render>
+        <!--<tree :menus="menus"></tree>-->
         <router-view></router-view>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
     import tree from './tree.vue';
-    module.exports = {
+    import treeRender from 'src/components/treeMenu/render';
+
+    export default {
         components: {
-            tree: tree
+            tree,
+            treeRender
         },
-        methods: {
+        computed: {
             menus: function () {
-                var id=this.$route.params.id;
-                return this.$store.state.data.filter(
-                        function(v){
-                            return v.id==id
-                        }
-                )
+                let id = this.$route.params.id;
+                let menu = this.$store.state.data.filter(
+                    function (v) {
+                        return v.id == id
+                    }
+                );
+                return menu && menu[0] && menu[0].children
             }
-        }
+        },
     }
 </script>

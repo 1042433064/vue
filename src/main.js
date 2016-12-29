@@ -6,14 +6,14 @@ import Backbone from 'backbone';
 import store from './store';
 import JqueryConfig from './config/jqueryConfig'
 
-import Home from './pages/home.vue';
-import LeftMenu from './pages/leftMenu.vue';
-import RightBody from './pages/rightBody.vue';
-import hello from 'src/custom/hello.vue';
-
 window.$ = window.jQuery = Jquery;
 window._ = Underscore;
 window.Backbone = Backbone;
+
+
+import Home from './pages/home.vue';
+import LeftMenu from './pages/leftMenu.vue';
+import RightBody from './pages/rightBody.vue';
 
 
 Vue.use(VueRouter);
@@ -22,13 +22,16 @@ const Bar = {template: '<div>{{this.$route.params.key}}</div>'};
 const routes = [
     {
         path: '/',
+        name:'one',
         component: Home,
         children: [{
             path: ':id',
+            name:'two',
             component: LeftMenu,
             children: [
                 {
                     path: ':key',
+                    name: 'three',
                     component: RightBody
                 }
             ]

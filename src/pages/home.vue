@@ -1,14 +1,14 @@
 <style lang="less">
-    @import "../static/less/hello";
-
-
+    @import "/src/plugin/fontAwesome/css/font-awesome.min.css";
+    body,ul{
+        margin: 0;
+        padding: 0;
+        font-family: Roboto, Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', '\\5FAE软雅黑', Arial, sans-serif;
+    }
 </style>
 
 <template>
     <div>
-        <!--likeV
-        <input @click="del" type="button" value="del">-->
-        <hello class="hello"></hello>
         <top-nav></top-nav>
         <router-view></router-view>
     </div>
@@ -17,11 +17,10 @@
 <script>
     import topNav from './topNav.vue';
     import leftMenu from './leftMenu.vue';
-    import hello from 'src/custom/hello.vue';
     import menu from '../config/menu.json';
 
     module.exports = {
-        beforeRouteEnter: function (to, from, next) {
+        beforeRouteEnter (to, from, next) {
             /*$.get('/snc-system/resources/reslist.shtml', {}, function (d) {
                 next(function (vm) {
                     vm.$store.commit('setData',{data: JSON.parse(d)})
@@ -32,9 +31,8 @@
             });
         },
         components: {
-            topNav: topNav,
-            leftMenu:leftMenu,
-            hello
+            topNav,
+            leftMenu,
         },
         computed:{
             top: function () {
@@ -45,9 +43,6 @@
             }
         },
         methods: {
-            del: function () {
-                this.$store.commit('pop')
-            }
         },
     }
 </script>

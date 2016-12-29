@@ -38,7 +38,7 @@ cooking.set({
 
     //'jquery'  : '/src/oldjs/primary/plugins/datetimepicker/sample in bootstrap v3/jquery/jquery-1.8.3.min'
   },
-  extends: ['vue2', 'less', 'autoprefixer']
+  extends: ['vue2', 'less', 'autoprefixer']//eslint
 });
 
 module.exports = cooking.resolve();

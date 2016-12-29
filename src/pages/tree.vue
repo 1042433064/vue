@@ -4,7 +4,7 @@
 
 <template>
     <ul>
-        <li v-for="menu in menus">
+        <li v-for="menu in menus" :key="menu.id">
             <router-link :to="getPath(menu.id)">{{menu.name}}</router-link>
             <top-nav v-if="menu.children.length>0" :menus="menu.children"></top-nav>
         </li>
